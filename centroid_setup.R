@@ -30,5 +30,8 @@ cent_file = read_xlsx(file.path(tmp, 'SiteMetadata.xlsx'),
 #format for PRISM download pipeline
 colnames(cent_file)[1] = 'rowid'
 
-  
+write.csv(cent_file, file.path(dumpdir, paste0('PRISM_multisite_centroids_', startyear, '_', endyear, '_', sitefile, '.csv')))
+
+cent_file <- cent_file %>% 
+  select(rowid, CentroidLatDD, CentroidLongDD)
 
