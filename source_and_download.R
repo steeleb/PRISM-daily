@@ -8,6 +8,7 @@ library(xlsx)
 library(sf)
 library(prism)
 library(terra)
+library(lubridate)
 
 # point to directory where you want to store output
 dumpdir = 'C:/Users/steeleb/Dropbox/EPSCoR/PRISM/'
@@ -22,7 +23,7 @@ vars = c('ppt', 'tmin', 'tmax', 'tmean')
 
 #indicate years of interest
 startyear = 2000
-endyear = 2000
+endyear = 2021
 
 #indicate multisite identifier for datafile
 sitefile = 'CrossSiteGloeo'
@@ -34,5 +35,6 @@ source('centroid_setup.R')
 #For each year and variable it's about 20 minutes.
 source('download_extract.R')
 
-#saving one step down -- need to save after each year.
+#run clean up script -- this also saves to the shared drive
+source('cleanup.R')
 
